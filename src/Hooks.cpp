@@ -784,7 +784,7 @@ namespace Hooks
 					playerCharacter->data.angle.x = -rot.y;
 				}
 				
-				a_this->freeRotation.x = NormalAbsoluteAngle(rot.x - horse->data.angle.z);
+				if (horse) a_this->freeRotation.x = NormalAbsoluteAngle(rot.x - horse->data.angle.z);
 			}
 
 			if (savedCamera.bZoomSaved) {
@@ -795,7 +795,7 @@ namespace Hooks
 				a_this->savedZoomOffset = a_this->targetZoomOffset;
 			}
 
-			a_this->horseCurrentDirection = horse->GetHeading(false);
+			if (horse) a_this->horseCurrentDirection = horse->GetHeading(false);
 		}
 	}
 
@@ -896,7 +896,7 @@ namespace Hooks
 					playerCharacter->data.angle.x = -rot.y;
 				}
 				
-				a_this->freeRotation.x = NormalAbsoluteAngle(rot.x - dragon->data.angle.z);
+				if (dragon) a_this->freeRotation.x = NormalAbsoluteAngle(rot.x - dragon->data.angle.z);
 			}
 
 			if (savedCamera.bZoomSaved) {
@@ -907,7 +907,7 @@ namespace Hooks
 				a_this->savedZoomOffset = a_this->targetZoomOffset;
 			}
 
-			SetDragonCurrentDirection(a_this, dragon->GetHeading(false));
+			if (dragon) SetDragonCurrentDirection(a_this, dragon->GetHeading(false));
 		}
 	}
 
